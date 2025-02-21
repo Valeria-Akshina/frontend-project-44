@@ -1,38 +1,36 @@
 //игра нечет чет
 
 import readlineSync from 'readline-sync'
+import { greetings, isName } from "../src/cli.js";
 
-const getParityСheck = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const isEven = (number) => number % 2 === 0
 
-const greetUser = () => {
-    console.log('Welcome to the Brain Games!');
-    const name = readlineSync.question('May I have your name? ');
-    console.log(`Hello, ${name}!`);
-    return name;
-};
+const gameEven = () => {
+  greetings()
+  const userName = isName()
+  console.log('Answer "yes" if the number is even, otherwise answer "no".')
 
-const isEven = (num) => num % 2 === 0;
+  let correctAnswers = 0
+  const rounds = 3
 
-const playGame = () => {
-    const userName = greetUser();
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  for (let i = 0; i < rounds; i++) {
+    const randomNumber = Math.floor(Math.random() * 100)
+    console.log(`Question: ${randomNumber}`)
+    const userAnswer = readlineSync.question('Your answer: ').toLowerCase()
 
-    let correctAnswers = 0;
+    const correctAnswer = isEven(randomNumber) ? 'yes' : 'no'
 
-    while (correctAnswers < 3) {
-        const questionNumber = getParityСheck(1, 100)
-        console.log(`Question: ${questionNumber}`)
-        const userAnswer = readlineSync.question('Your answer: ').toLowerCase()
-        const correctAnswer = isEven(questionNumber) ? 'yes' : 'no'
-
-        if (userAnswer !== correctAnswer) {
-            console.log `${userAnswer} is wrong answer` ; (`. Correct answer was ${correctAnswer}.`)
-            console.log(`Let's try again, ${userName}!`)
-            return
-        }
-        console.log('Correct!')
-        correctAnswers += 1
+    if (userAnswer === correctAnswer) {
+      console.log('Correct!')
+      correctAnswers += 1
+    } else {
+      console.log (`${userAnswer} is wrong answer; (Correct answer was ${correctAnswer}).`)
+      console.log(`Let's try again, ${userName}!`)
+      return
     }
-    console.log(Congratulations, `${userName}!`)
+  }
+
+  console.log(`Congratulations, ${userName}!`)
 }
-playGame()
+
+gameEven()
