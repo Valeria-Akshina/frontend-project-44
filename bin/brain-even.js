@@ -12,7 +12,7 @@ const gameEven = () => {
   const userName = isName()
   console.log('Answer "yes" if the number is even, otherwise answer "no".')
 
-  //отслежка
+  //счетчик
   let correctAnswers = 0
   const rounds = 3
 

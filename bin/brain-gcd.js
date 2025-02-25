@@ -19,14 +19,14 @@ const gameGcd = () => {
   const userName = isName()
   console.log('Find the greatest common divisor of given numbers.')
 
-  //отслежка
+  //счетчик
   let correctAnswers = 0
   const rounds = 3
 
   //рандом
   for (let i = 0; i < rounds; i++) {
-    const num1 = Math.floor(Math.random() * 100) + 1
-    const num2 = Math.floor(Math.random() * 100) + 1
+    const num1 = Math.floor(Math.random() * 10) + 1
+    const num2 = Math.floor(Math.random() * 10) + 1
     console.log(`Question: ${num1} ${num2}`)
     
     //ответ пользователя
@@ -46,7 +46,7 @@ const gameGcd = () => {
   }
 //конец
   console.log(`Congratulations, ${userName}!`)
-};
+}
 
 // Запуск игры
 gameGcd()

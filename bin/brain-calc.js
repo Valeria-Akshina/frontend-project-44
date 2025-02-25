@@ -32,7 +32,7 @@ const gameCalculator = () => {
   const userName = isName()
   console.log('What is the result of the expression?')
 
-//сама игра
+//счетчик
 let correctAnswers = 0
 const rounds = 3
 
