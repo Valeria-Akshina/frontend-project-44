@@ -52,12 +52,10 @@ const gameProgression = () => {
             correctAnswers += 1
         } else {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${replaceElem}.`)
-            console.log(`Let's try again, ${userName}!`)
-            return
         }
     }
 //конец
-    console.log(`Congratulations, ${userName}!`)
+    console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
 }
 
 // Запуск игры

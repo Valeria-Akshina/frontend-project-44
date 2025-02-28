@@ -25,6 +25,7 @@ const gamePrime = () => {
 
     //счетчик
     const rounds = 3
+    let correctAnswers = 0
 
     //проверка
     for (let i = 0; i < rounds; i++) {
@@ -38,12 +39,10 @@ const gamePrime = () => {
             console.log('Correct!')
         } else {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
-            console.log(`Let's try again, ${userName}!); // Предлагает попробовать снова`)
-            return
         }
     }
 //конец
-    console.log(`Congratulations, ${userName}! You answered all questions correctly!`)
+    console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
 }
 
 gamePrime()
