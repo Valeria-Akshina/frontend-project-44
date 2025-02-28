@@ -20,7 +20,6 @@ const gameGcd = () => {
   console.log('Find the greatest common divisor of given numbers.')
 
   //счетчик
-  let correctAnswers = 0
   const rounds = 3
 
   //рандом
@@ -37,13 +36,14 @@ const gameGcd = () => {
 
     if (parseInt(userAnswer, 10) === correctAnswer) {
       console.log('Correct!')
-      correctAnswers += 1
     } else {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${correctAnswer}.`)
+      console.log(`Let's try again, ${userName}!`)
+      return
     }
   }
 //конец
-  console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
+  console.log(`Congratulations, ${userName}!`)
 }
 
 // Запуск игры

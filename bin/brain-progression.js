@@ -32,7 +32,7 @@ const gameProgression = () => {
     console.log('What number is missing in the progression?')
 
     //счетчик
-    let correctAnswers = 0
+
     const rounds = 3
 
     for (let i = 0; i < rounds; i++) {
@@ -49,13 +49,14 @@ const gameProgression = () => {
 //проверка ответа
         if (parseInt(userAnswer, 10) === replaceElem) {
             console.log('Correct!')
-            correctAnswers += 1
+
         } else {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${replaceElem}.`)
+            
         }
     }
 //конец
-    console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
+    console.log(`Congratulations, ${userName}!`)
 }
 
 // Запуск игры

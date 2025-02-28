@@ -13,7 +13,6 @@ const gameEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".')
 
   //счетчик
-  let correctAnswers = 0
   const rounds = 3
 
   //рандом
@@ -29,13 +28,14 @@ const gameEven = () => {
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!')
-      correctAnswers += 1
     } else {
       console.log (`${userAnswer} is wrong answer; (Correct answer was ${correctAnswer}).`)
+      console.log(`Let's try again, ${userName}!`)
+      return
     }
   }
 // конец
-  console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
+  console.log(`Congratulations, ${userName}!`)
 }
 
 gameEven()

@@ -4,6 +4,9 @@ install:
 brain-games:
 	node bin/brain-games
 
+lint:
+	npx eslint
+
 brain-even:
 	node bin/brain-even
 

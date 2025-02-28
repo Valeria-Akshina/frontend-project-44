@@ -5,8 +5,8 @@ import { greetings, isName } from "../src/cli.js"
 
 //простое ли число
 const isPrimeNum = (num) => {
-    if (num <= 1) return false //просто число не может быть равен одному или быть меньше одного
-    for (let i = 2; i <= Math.sqrt(num); i++) { //если не делится то тож не простое
+    if (num <= 0) return false //просто число не может быть равен одному или быть меньше одного
+    for (let i = 1; i <= Math.sqrt(num); i++) { //если не делится то тож не простое
         if (num % i === 0) return false
     }
     return true
@@ -25,7 +25,6 @@ const gamePrime = () => {
 
     //счетчик
     const rounds = 3
-    let correctAnswers = 0
 
     //проверка
     for (let i = 0; i < rounds; i++) {
@@ -39,10 +38,12 @@ const gamePrime = () => {
             console.log('Correct!')
         } else {
             console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`)
+            console.log(`Let's try again, ${userName}!`)
+            return
         }
     }
 //конец
-    console.log(`Congratulations, ${userName}! You answered correctly ${correctAnswers} out of ${rounds} questions.`)
+    console.log(`Congratulations, ${userName}!`)
 }
 
 gamePrime()
