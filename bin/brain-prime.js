@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 //Игра "Простое ли число?"
 //импорт модулей
 import readlineSync from 'readline-sync'

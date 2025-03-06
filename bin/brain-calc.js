@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 //шестое задание, математическое выражение
 //импорт модулей
 import { greetings, isName } from "../src/cli.js";

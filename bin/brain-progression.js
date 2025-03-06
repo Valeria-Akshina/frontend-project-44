@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 //игра "Арифметическая прогрессия"
 //импорт модулей
 import readlineSync from 'readline-sync'

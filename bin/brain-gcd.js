@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 //игра НОД
 //импорт модулей
 import readlineSync from 'readline-sync'
