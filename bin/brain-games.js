@@ -5,3 +5,4 @@ import { greetings, isName } from "../src/cli.js"
 
 greetings()
 const userName = isName()
+console.log(userName)
