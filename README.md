@@ -11,6 +11,11 @@
 4. Определение наибольшего общего делителя.
 5. Определение простого числа.
 
+Приветствие - node bin/brain-games.js
+пример:
+
+<script src="https://asciinema.org/a/ScA7kLTIlTCuTTwExT2MCocKR.js" id="asciicast-ScA7kLTIlTCuTTwExT2MCocKR" async="true"></script>
+
 Игра "Проверка на чётность" - выполняется через терминал brain-even
 Пример выполнения:
 
