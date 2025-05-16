@@ -1,27 +1,25 @@
-// src/games/progression.js
-//генерация случайных чисел, floor-(округление числа до ближайщего)
-const randonNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+import getRandomNumber from '../utils.js'
 
-const generation = (start, some, length) => {
-  const progression = [];
+const generateProgression = (start, step, length) => {
+  const progression = []
   for (let i = 0; i < length; i += 1) {
-    progression.push(start + some * i);
+    progression.push(start + step * i)
   }
-  return progression;
-};
+  return progression
+}
 
-const game = () => {
-  const start = randonNum(1, 50);
-  const some = randonNum(1, 10);
-  const length = randonNum(5, 10);
-  const progression = generation(start, some, length);
-  const hiddenIndex = randonNum(0, length - 1);
-  const correctAnswer = String(progression[hiddenIndex]);
-  progression[hiddenIndex] = '..';
-  const question = progression.join(' ');
-  return [question, correctAnswer];
-};
+const generateRound = () => {
+  const progressionLength = getRandomNumber(5, 10)
+  const start = getRandomNumber(1, 10)
+  const step = getRandomNumber(1, 5)
+  const progression = generateProgression(start, step, progressionLength)
+  const hiddenIndex = getRandomNumber(0, progressionLength - 1)
+  const answer = String(progression[hiddenIndex])
+  progression[hiddenIndex] = '..'
+  const question = progression.join(' ')
+  return [question, answer]
+}
 
-const check = 'What number is missing in the progression?';
+export const description = 'What number is missing in the progression?'
 
-export { game, check };
+export default generateRound

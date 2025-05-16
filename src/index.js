@@ -1,39 +1,29 @@
 //общая логика игры
-//brain-calc
 import readlineSync from 'readline-sync'
 
-// Основная логика игры
-// Приветствие
-const runGame = (check, game) => {
+const roundsCount = 3
+
+const runEngine = (description, generateRound) => {
   console.log('Welcome to the Brain Games!')
+  const name = readlineSync.question('May I have your name? ')
+  console.log(`Hello, ${name}!`)
+  console.log(description)
 
-  // Запрос имени пользователя
-const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(check)
-  
-  // Основная логика игры
-  let correctAnswersCount = 0;
-  const roundsCount = 3;
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [question, answer] = generateRound()
+    console.log(`Question: ${question}`)
+    const userAnswer = readlineSync.question('Your answer: ')
 
-  while (correctAnswersCount < roundsCount) {
-    const [question, correctAnswer] = game();
-    console.log(`Question: ${question}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    if (userAnswer === correctAnswer) {
-      console.log('Correct!');
-      correctAnswersCount += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+    if (userAnswer !== answer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      return
     }
+
+    console.log('Correct!')
   }
 
-  console.log(`Congratulations, ${name}!`);
-};
+  console.log(`Congratulations, ${name}!`)
+}
 
-
-
-export default runGame
+export default runEngine

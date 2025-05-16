@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-//шестое задание, математическое выражение
-import runGame from '../src/index.js';
-import { game, check } from '../src/games/calc.js';
 
-runGame(check, game);
+import runEngine from '../src/index.js'
+import generateRound, { description } from '../src/games/calc.js'
+
+runEngine(description, generateRound)

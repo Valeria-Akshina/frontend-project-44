@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-//игра НОД
-//импорт модулей
-import runGame from '../src/index.js';
-import { game, check } from '../src/games/gcd.js';
 
-runGame(check, game);
+import runEngine from '../src/index.js'
+import generateRound, { description } from '../src/games/gcd.js'
+
+runEngine(description, generateRound)

@@ -1,19 +1,13 @@
-//генерация случайных чисел, floor-(округление числа до ближайщего)
-const randonNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+import getRandomNumber from '../utils.js'
 
-//проверка чет
-const isEven = (number) => number % 2 === 0;
+const isEven = num => num % 2 === 0
 
-//начало
-const game = () => {
-  const number = randonNum(1, 100);
-  const question = `${number}`;
+const generateRound = () => {
+  const question = getRandomNumber(1, 100)
+  const answer = isEven(question) ? 'yes' : 'no'
+  return [question, answer]
+}
 
-//проверка ответа
-  const correctAnswer = isEven(number) ? 'yes' : 'no';
-  return [question, correctAnswer];
-};
+export const description = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-const check = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-export { game, check };
+export default generateRound

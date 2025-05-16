@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-//игра нечет чет
-//импорт модулей
-import runGame from '../src/index.js';
-import { game, check } from '../src/games/even.js';
 
-runGame(check, game);
+import runEngine from '../src/index.js'
+import generateRound, { description } from '../src/games/even.js'
+
+runEngine(description, generateRound)

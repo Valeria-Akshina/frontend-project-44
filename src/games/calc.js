@@ -1,30 +1,26 @@
 
-//генерация случайных чисел, floor-(округление числа до ближайщего)
-const randonNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+import getRandomNumber from '../utils.js'
 
-//вычисление
-const calculate = (num1, num2, operator) => {
+const operators = ['+', '-', '*']
+
+const calculate = (a, b, operator) => {
   switch (operator) {
-    case '+': return num1 + num2;
-    case '-': return num1 - num2;
-    case '*': return num1 * num2;
-    default: throw new Error(`Unknown operator: ${operator}`);
+    case '+': return a + b
+    case '-': return a - b
+    case '*': return a * b
+    default: throw new Error(`Unknown operator: ${operator}`)
   }
-};
+}
 
-//начало
-const game = () => {
-  const num1 = randonNum(1, 20);
-  const num2 = randonNum(1, 20);
-  const operators = ['+', '-', '*'];
-  const operator = operators[randonNum(0, operators.length - 1)];
-  const question = `${num1} ${operator} ${num2}`;
+const generateRound = () => {
+  const a = getRandomNumber(1, 20)
+  const b = getRandomNumber(1, 20)
+  const operator = operators[getRandomNumber(0, operators.length - 1)]
+  const question = `${a} ${operator} ${b}`
+  const answer = String(calculate(a, b, operator))
+  return [question, answer]
+}
 
-  //проверка ответа
-  const correctAnswer = String(calculate(num1, num2, operator));
-  return [question, correctAnswer];
-};
+export const description = 'What is the result of the expression?'
 
-const check = 'What is the result of the expression?';
-
-export { game, check };
+export default generateRound
