@@ -1,7 +1,6 @@
-
 import getRandomNumber from '../utils.js'
 
-const operators = ['+', '*', '-']
+const operators = ['+', '-', '*']
 
 const calculate = (a, b, operator) => {
   switch (operator) {
